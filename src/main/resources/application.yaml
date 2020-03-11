@@ -1,7 +1,7 @@
 server:
   port: 8090
   servlet:
-    contextPath: /SpringCloudServer
+    contextPath: /testEurekaServer
 
 eureka:
   dashboard:
@@ -16,7 +16,7 @@ eureka:
     registerWithEureka: false
     fetchRegistry: false
     serviceUrl:
-      defaultZone: http://myharbor.com/SpringCloudServer/eureka
+      defaultZone: http://myharbor.com/testEurekaServer/eureka
  
 spring:
   application:
@@ -24,4 +24,4 @@ spring:
   freemarker:
     prefer-file-system-access: false
   jmx: 
-    default-domain: SpringCloudServer
+    default-domain: testEurekaServer
