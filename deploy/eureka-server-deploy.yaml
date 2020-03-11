@@ -20,12 +20,4 @@ spec:
        ports:
        - containerPort: 8080
          protocol: TCP
-       livenessProbe:
-         httpGet:
-           path: /SpringCloudServer/actuator/health
-           port: 8080
-           httpHeaders:
-           - name: X-Custom-Header
-             value: Awesome
-         initialDelaySeconds: 5
-         periodSeconds: 5
+       
