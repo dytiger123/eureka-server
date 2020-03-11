@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-eureka-server
+  namespace: webapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: test-eureka-server
+  template:
+    metadata:
+     labels:
+       name: test-eureka-server
+    spec:
+     containers:
+     - name: test-eureka-server
+       image: myharbor.com/library/test-eureka-server:1.@{build_no}
+       imagePullPolicy: IfNotPresent
+       ports:
+       - containerPort: 8080
+         protocol: TCP
+       livenessProbe:
+         httpGet:
+           path: /SpringCloudServer/actuator/health
+           port: 8080
+           httpHeaders:
+           - name: X-Custom-Header
+             value: Awesome
+         initialDelaySeconds: 5
+         periodSeconds: 5
