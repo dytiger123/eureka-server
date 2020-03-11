@@ -1,0 +1,27 @@
+server:
+  port: 8090
+  servlet:
+    contextPath: /SpringCloudServer
+
+eureka:
+  dashboard:
+    path: /dashboard
+    enabled: true
+  instance:
+    hostname: myharbor.com
+  server:
+    enable-self-preservation: false
+    eviction-interval-timer-in-ms: 50000 #清理间隔(单位毫秒,默认是60*1000)
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://myharbor.com/SpringCloudServer/eureka
+ 
+spring:
+  application:
+    name: SpringCloudServer
+  freemarker:
+    prefer-file-system-access: false
+  jmx: 
+    default-domain: SpringCloudServer
