@@ -3,14 +3,7 @@ server:
   servlet:
     contextPath: /testEurekaServer
 
-USER: root
-PASSWORD: 123456
-
 eureka:
-  security:
-    user:
-      name: ${USER}
-      password: ${PASSWORD}
   dashboard:
     path: /dashboard
     enabled: true
@@ -23,12 +16,14 @@ eureka:
     registerWithEureka: false
     fetchRegistry: false
     serviceUrl:
-      defaultZone: http://${USER}:${PASSWORD}@192.168.1.30/testEurekaServer/eureka
+      defaultZone: http://192.168.1.30/testEurekaServer/eureka
  
 spring:
+  security:
+    user:
+      name: admin
+      password: admin
   application:
     name: testEurekaServer
-  freemarker:
-    prefer-file-system-access: false
   jmx: 
     default-domain: testEurekaServer
